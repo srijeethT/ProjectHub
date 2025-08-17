@@ -5,7 +5,12 @@ export const navItems = [
         url: "/",
     },
     {
-        name: "Projects",
+        name: "Buy Projects",
+        icon: "/cart.png",
+        url: "/buy",
+    },
+    {
+        name: "My Projects",
         icon: "/project.jpg",
         url: "/projects",
     },

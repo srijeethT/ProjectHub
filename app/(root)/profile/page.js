@@ -97,7 +97,7 @@ const Page = () => {
 
 
     return (
-        <div className='flex flex-col items-center'>
+        <div className='flex flex-col items-center mt-20'>
             <ToastContainer position="top-center" autoClose={3000} />
             <div className="flex flex-col items-center pt-10">
                 {/* Profile Image */}

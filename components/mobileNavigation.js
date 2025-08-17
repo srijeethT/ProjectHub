@@ -2,22 +2,21 @@
 import React, { useState } from 'react';
 import Image from "next/image";
 import Link from 'next/link';
-import { handleLogout } from "../lib/actions/user.actions";
 import { avatarPlaceholderUrl, navItems } from '../constants';
 
-const MobileNavigation = ({email}) => {
-    const [open, setOpen] = useState(false);
+const MobileNavigation = ({ email }) => {
+    const [open, setOpen] = React.useState(false);
 
     return (
         <>
-            {/* Menu Button */}
+            {/* Menu Button always visible */}
             <div onClick={() => setOpen(true)} className="cursor-pointer">
                 <Image src="/menu2.svg" alt="menu" width={24} height={24} />
             </div>
 
-            {/* Right Drawer */}
+            {/* Sidebar drawer sliding in from the right */}
             <div
-                className={`fixed top-0 right-0 z-50 h-full w-64 bg-blue-400 text-white shadow-lg transform transition-transform duration-300 ${
+                className={`fixed top-0 right-[-15] z-50 h-full w-64 bg-blue-400 text-white shadow-lg transform transition-transform duration-300 ${
                     open ? 'translate-x-0' : 'translate-x-full'
                 }`}
             >
@@ -33,47 +32,50 @@ const MobileNavigation = ({email}) => {
                     />
                 </div>
 
-                {/* Logo */}
-                <div className="text-2xl font-bold px-4 mb-6">
-                    <Link href="/" onClick={() => setOpen(false)}>
-                        ProJectHub
-                    </Link>
-                </div>
+                {/* Navigation Items */}
+                <nav className="px-4 py-2">
+                    <ul className="flex flex-col gap-4">
+                        {navItems.map(({ url, name, icon }) => (
+                            <li key={name}>
+                                <Link
+                                    href={url}
+                                    className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-blue-500 transition duration-200"
+                                    onClick={() => setOpen(false)} // close on navigation
+                                >
+                                    <Image src={icon} alt={name} width={24} height={24} />
+                                    <span className="text-sm font-medium">{name}</span>
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                </nav>
 
-                {/* Nav Links */}
-                <div className="flex-1 px-4 overflow-y-auto">
-                    {navItems.map(({ url, name }) => (
-                        <Link key={name} href={url} onClick={() => setOpen(false)}>
-                            <p className="block py-3 rounded hover:bg-blue-300 transition">{name}</p>
-                        </Link>
-                    ))}
-                </div>
-
-                {/* User Info + Logout */}
-                <div className="flex flex-col items-center gap-3 p-4 border-t border-blue-300">
-                    <div className='flex '>
+                {/* User Info */}
+                <div className="flex items-center gap-3 px-4 py-3 border-t border-blue-300 bg-blue-500 absolute bottom-0 left-0 right-0">
+                    <Link href="/profile">
                         <Image
                             src={avatarPlaceholderUrl}
                             alt="User Avatar"
-                            width={36}
-                            height={36}
-                            className="rounded-full object-cover m-2"
+                            width={40}
+                            height={40}
+                            className="rounded-full object-cover"
                         />
-                        <p className='py-3'>{email}</p>
-                    </div>
-
-                    <form action={async () => { await handleLogout(); }}>
-                        <button
-                            type="submit"
-                            className="ml-3 bg-white text-blue-600 px-3 py-1 rounded hover:bg-blue-100 transition"
-                        >
-                            Logout
-                        </button>
-                    </form>
+                    </Link>
+                    <p className="text-sm font-light truncate">{email}</p>
                 </div>
             </div>
+
+            {/* Overlay to cover rest of the page */}
+            {open && (
+                <div
+                    onClick={() => setOpen(false)}
+                    className="fixed inset-0  z-40"
+                />
+            )}
         </>
     );
 };
+
+
 
 export default MobileNavigation;

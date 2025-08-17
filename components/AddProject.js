@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/dialog";
 import {toast, ToastContainer} from "react-toastify";
 import {projectCategories} from "../constants";
+import {error} from "next/dist/build/output/log";
 
 const AddProject = () => {
 
@@ -20,6 +21,7 @@ const AddProject = () => {
     const [projectTechnologies, setProjectTechnologies] = useState("");
     const [projectWebsiteLink, setProjectWebsiteLink] = useState("");
     const [projectGithubLink, setProjectGithubLink] = useState("");
+    const [projectCost, setProjectCost] = useState("");
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -33,6 +35,7 @@ const AddProject = () => {
                 projectName,
                 projectDescription,
                 projectCategory,
+                projectCost,
                 projectTechnologies: projectTechnologies.split(',').map(t => t.trim()),
                 projectWebsiteLink,
                 projectGithubLink,
@@ -49,8 +52,9 @@ const AddProject = () => {
             setProjectTechnologies('');
             setProjectWebsiteLink('');
             setProjectGithubLink('')
+            setProjectCost('');
         } else {
-            toast.error( "Failed to add project");
+            toast.error( data.message || "Failed to add project");
         }
     };
 
@@ -73,6 +77,8 @@ const AddProject = () => {
                     <form onSubmit={handleSubmit} className="flex flex-col gap-4 ">
                     <input type="text" placeholder="Project Name" required value={projectName} onChange={(e) => setProjectName(e.target.value)} className="border border-blue-400 rounded px-3 py-2" />
                     <input type="text" placeholder="Project Description" required value={projectDescription} onChange={(e) => setProjectDescription(e.target.value)} className="border border-blue-400 rounded px-3 py-2" />
+                        <input type="number" placeholder="Project Cost(rupees)" required value={projectCost} onChange={(e) => setProjectCost(e.target.value)} className="border border-blue-400 rounded px-3 py-2" />
+
                         <select className="border border-blue-400 rounded px-3 py-2" value={projectCategory} onChange={(e) => setProjectCategory(e.target.value)} >
                             <option value="">Select a Category</option>
                             {projectCategories.map((category) => (

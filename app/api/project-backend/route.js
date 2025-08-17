@@ -28,6 +28,7 @@ export async function POST(req) {
             projectTechnologies,
             projectWebsiteLink,
             projectGithubLink,
+            projectCost
         } = body;
 
         // Create the new project
@@ -42,6 +43,7 @@ export async function POST(req) {
             ProjectImage: '/default-image.jpg',
             ProjectWebsiteLink: projectWebsiteLink,
             ProjectGithubLink: projectGithubLink,
+            ProjectCost: projectCost,
         });
 
         // Increment projectCount for the user

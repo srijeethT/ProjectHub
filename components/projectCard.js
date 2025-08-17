@@ -3,15 +3,19 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
 import Link from "next/link";
+import { useCopilotAction } from "@copilotkit/react-core";
+import {useRouter} from "next/navigation";
 
 const ProjectCard = () => {
     const [projects, setProjects] = useState([]);
+    const router=useRouter();
 
     useEffect(() => {
         const fetchProjects = async () => {
             try {
                 const res = await fetch('/api/project-backend');
                 const data = await res.json();
+                console.log("Fetched projects:", data.projects);
                 if (!data) return;
                 setProjects(data.projects || []);
             } catch (e) {
@@ -21,12 +25,43 @@ const ProjectCard = () => {
         fetchProjects();
     }, []);
 
+    useCopilotAction({
+        name: "openProject",
+        description: "Open the project by project name",
+        parameters: [
+            {
+                name: "open",
+                type: "string",
+                description: "The name of the project to open",
+                required: true,
+            },
+        ],
+        handler: async ({ open }) => {
+            const normalized = open.trim().toLowerCase();
+
+            // Search inside projects (plural)
+            const projec = projects.find(
+                p => p.ProjectName.trim().toLowerCase() === normalized
+            );
+
+            console.log("Matched project:", projec);
+            if (!projec) {
+                alert(`Project "${open}" not found.`);
+                return;
+            }
+
+            router.push(`/projects/${projec._id}`);
+        },
+    });
+
+
+
     return (
         <>
-            <h1 className="text-3xl font-bold ml-10 mt-6 mb-4">Your Projects</h1>
+            <h1 className="text-3xl text-center font-bold ml-10 mt-6 mb-4">Your Projects</h1>
 
             {/* Container that fills available space (excluding navbar & sidebar) */}
-            <div className="flex justify-center items-center w-full px-4">
+            <div className="flex ml-10 justify-center items-center w-full px-4">
                 {/* Content wrapper */}
                 <section className="flex flex-col gap-6 max-w-3xl w-full pb-10">
                     {projects.map((project) => (
@@ -34,13 +69,13 @@ const ProjectCard = () => {
                             key={project._id}
                             className="bg-white shadow-md rounded-xl overflow-hidden hover:shadow-lg transition border"
                         >
-                            <Image
-                                src={project.ProjectImage || '/default-image.jpg'}
+                            {project.ProjectImage[0] && <Image
+                                src={project.ProjectImage[0]}
                                 alt={project.ProjectName}
                                 width={1200}
-                                height={500}
+                                height={700}
                                 className="object-cover w-full h-64"
-                            />
+                            />}
                             <div className="p-6 space-y-3">
                                 <div className="flex justify-between items-center">
                                     <h3 className="text-2xl font-semibold text-gray-800">

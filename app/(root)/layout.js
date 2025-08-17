@@ -1,11 +1,12 @@
 import { cookies } from "next/headers";
 import jwt from "jsonwebtoken";
-import { JWT_SECRET } from "../../config/env";
+import {API_KEY, JWT_SECRET} from "../../config/env";
 import User from "../../models/user.model";
 import { redirect } from "next/navigation";
 import Navbar from "@/components/navbar";
-import Sidebar from "@/components/sidebar";
-import MobileNavigation from "@/components/mobileNavigation";
+import { CopilotKit } from "@copilotkit/react-core";
+import "@copilotkit/react-ui/styles.css";
+import { CopilotPopup } from "@copilotkit/react-ui";
 
 const Layout = async ({ children }) => {
     let currentUser = null;
@@ -33,13 +34,19 @@ const Layout = async ({ children }) => {
 
     return (
         <main className=' flex bg-blue-100'>
-          <Sidebar {...UserDetail}/>
             <section className='flex h-full flex-1 flex-col'>
                 <Navbar {...UserDetail}/>
-                {children}
+                <CopilotKit publicApiKey={API_KEY}>
+                    {children}
+                    <CopilotPopup
+                        instructions={"You are assisting the user as best as you can. Answer in the best way possible given the data you have."}
+                        labels={{
+                            title: "Popup Assistant",
+                            initial: "Need any help?",
+                        }}
+                    />
+                </CopilotKit>
             </section>
-
-
         </main>
     );
 };

@@ -5,39 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0118d646-1cea-41a5-9da1-9b1a123ece64" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Databases/mongodb.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/(auth)/layout.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/(auth)/signin/page.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/(auth)/signup/page.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/(root)/page.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/(root)/profile/page.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/(root)/projects/[id]/page.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/(root)/projects/page.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/api/project-backend/route.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/api/specific-project/route.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/AddProject.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Authform.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/mobileNavigation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/navbar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/projectCard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/sidebar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/env.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/constants/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/actions/user.actions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/project.model.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/user.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/(root)/buy/[id]/page.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/(root)/buy/page.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/api/All-Projects/route.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/api/upload-project/route.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/EditProject.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(root)/layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/layout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(root)/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(root)/profile/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/profile/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(root)/projects/[id]/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/projects/[id]/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/project-backend/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/project-backend/route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/specific-project/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/specific-project/route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/update-project/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/update-project/route.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/page.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/jsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/AddProject.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/AddProject.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/mobileNavigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/mobileNavigation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/navbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/projectCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/projectCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/sidebar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/env.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/env.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/constants/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/constants/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/project.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/project.model.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/file.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/globe.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/next.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vercel.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/window.svg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +121,16 @@
       <workItem from="1754464082532" duration="24308000" />
       <workItem from="1754572202792" duration="5061000" />
       <workItem from="1754661379824" duration="2568000" />
-      <workItem from="1754728367029" duration="3163000" />
+      <workItem from="1754728367029" duration="7192000" />
+      <workItem from="1754830234376" duration="1781000" />
+      <workItem from="1754901194005" duration="7861000" />
+      <workItem from="1754937328768" duration="598000" />
+      <workItem from="1755157598383" duration="7359000" />
+      <workItem from="1755178436582" duration="3740000" />
+      <workItem from="1755265474101" duration="4581000" />
+      <workItem from="1755332670891" duration="8882000" />
+      <workItem from="1755438481969" duration="5150000" />
+      <workItem from="1755458754457" duration="8018000" />
     </task>
     <servers />
   </component>
