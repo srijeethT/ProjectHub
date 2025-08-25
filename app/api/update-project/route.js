@@ -18,7 +18,7 @@ export async function POST(req) {
         if (updateData.ProjectName) {
             const existing = await Project.findOne({
                 ProjectName: { $regex: `^${updateData.ProjectName.trim()}$`, $options: 'i' }, // case-insensitive match
-                _id: { $ne: id } // allow same name for same project during update
+                _id: { $ne: id } //
             });
 
             if (existing) {

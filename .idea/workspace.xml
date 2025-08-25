@@ -5,9 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0118d646-1cea-41a5-9da1-9b1a123ece64" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/(root)/buy/[id]/checkout/page.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/(root)/buy/wishlist/page.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/api/update-views/route.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/api/wishlist-check/route.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/api/wishlist-works/route.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/(root)/buy/[id]/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/buy/[id]/page.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/(root)/buy/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/buy/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(root)/projects/[id]/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/projects/[id]/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/All-Projects/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/All-Projects/route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/project-backend/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/project-backend/route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/update-project/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/update-project/route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/upload-profile/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/upload-profile/route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/AddProject.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/AddProject.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/project.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/project.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/user.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/user.model.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +67,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\srije\OneDrive\Desktop\next\my-app\app\(root)\buy\[id]" />
       <recent name="C:\Users\srije\OneDrive\Desktop\next\my-app\components\ui" />
       <recent name="C:\Users\srije\OneDrive\Desktop\next\my-app\app\api\upload-profile" />
       <recent name="C:\Users\srije\OneDrive\Desktop\next\my-app\app\(root)" />
@@ -117,7 +131,7 @@
       <workItem from="1755874882808" duration="378000" />
       <workItem from="1755899412841" duration="580000" />
       <workItem from="1756055371926" duration="1182000" />
-      <workItem from="1756118414725" duration="1032000" />
+      <workItem from="1756118414725" duration="12144000" />
     </task>
     <servers />
   </component>

@@ -16,7 +16,19 @@ export async function POST(req) {
         const decoded = jwt.verify(cookie, JWT_SECRET);
         const email = decoded.email;
 
-        const { profileName, mobile, image } = await req.json();
+        const requestData = await req.json();
+
+        // Extract all possible fields
+        const {
+            profileName,
+            mobile,
+            image,
+            address,
+            city,
+            state,
+            pincode,
+            country
+        } = requestData;
 
         if (!email) {
             return NextResponse.json({ message: 'Invalid request' }, { status: 400 });
@@ -24,10 +36,18 @@ export async function POST(req) {
 
         await connectToDatabase();
 
+        // Build update object dynamically - only include fields that are provided
         const updateData = {};
-        if (profileName) updateData.profileName = profileName;
-        if (mobile) updateData.mobile = mobile;
-        if (image) updateData.profilePic = image;
+        if (profileName !== undefined) updateData.profileName = profileName;
+        if (mobile !== undefined) updateData.mobile = mobile;
+        if (image !== undefined) updateData.profilePic = image;
+
+        // Add new fields for checkout
+        if (address !== undefined) updateData.address = address;
+        if (city !== undefined) updateData.city = city;
+        if (state !== undefined) updateData.state = state;
+        if (pincode !== undefined) updateData.pincode = pincode;
+        if (country !== undefined) updateData.country = country;
 
         const updatedUser = await User.findOneAndUpdate(
             { email },
@@ -46,7 +66,8 @@ export async function POST(req) {
     }
 }
 
-export async function GET(req) {
+
+export async function GET() {
     try{
         const cook=await cookies();
         const cookieStore= cook.get('token')?.value;

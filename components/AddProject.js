@@ -59,7 +59,7 @@ const AddProject = () => {
     };
 
     return (
-        <main className="flex flex-col items-center justify-center  p-6">
+        <main className="flex flex-col items-center justify-center mt-16  p-6">
             <ToastContainer position="top-center" autoClose={3000} />
             <Dialog open={open} onOpenChange={setOpen} className="w-[500px] max-w-[90vw] bg-background">
                 <DialogTrigger className="px-4 py-2 bg-blue-500 text-white rounded">

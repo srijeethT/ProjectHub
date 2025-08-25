@@ -58,6 +58,19 @@ const projectSchema = new mongoose.Schema({
         default: 0,
         required: true,
     },
+    ProjectRating:{
+        type: Number,
+    },
+    ProjectRatingCount:{
+        type: Number,
+    },
+    ProjectRatingAverage:{
+        type: Number,
+    },
+    ProjectViews:{
+        type: Number,
+        default: 0,
+    }
 });
 
 // 🔹 Ensure ProjectOwner is in ProjectMembers

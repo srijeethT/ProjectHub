@@ -30,6 +30,30 @@ const userSchema= new mongoose.Schema({
         type:Number,
         default:0,
     },
+    wishlist: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Project'
+    }],
+    address: {
+        type: String,
+        default: null,
+    },
+    city: {
+        type: String,
+        default: null,
+    },
+    state: {
+        type: String,
+        default: null,
+    },
+    pincode: {
+        type: String,
+        default: null,
+    },
+    country: {
+        type: String,
+        default: 'India',
+    }
 },{timestamps:true});
 
 const User = mongoose.models.User || mongoose.model('User', userSchema);

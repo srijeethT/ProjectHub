@@ -15,14 +15,28 @@ import { FaExternalLinkAlt } from 'react-icons/fa';
 const BuyPage = () => {
     const { id } = useParams();
     const [project, setProject] = useState('');
-    const [red,setRed]=useState(false);
+    const [red, setRed] = useState()
 
     useEffect(() => {
         const fetchProject = async () => {
             try {
+                fetch('/api/update-views', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id }),
+                }).catch(console.error);
                 const res = await fetch(`/api/specific-project?id=${id}`);
                 const data = await res.json();
                 setProject(data.project);
+
+                // Check wishlist status
+                const wishlistRes = await fetch('/api/wishlist-check', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ projectId: id }),
+                });
+                const wishlistData = await wishlistRes.json();
+                setRed(wishlistData.wishlisted);
             } catch (err) {
                 console.error('Error fetching project:', err);
             }
@@ -37,8 +51,25 @@ const BuyPage = () => {
     }
 
     const handleClick=()=>{
-        redirect('/');
+        redirect(`/buy/${id}/checkout`);
     }
+
+    const handleWishlistToggle = async () => {
+        try {
+            const action = red ? 'remove' : 'add';
+            const res = await fetch('/api/wishlist-works', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ projectId: id, action }),
+            });
+
+            if (res.ok) {
+                setRed(!red);
+            }
+        } catch (error) {
+            console.error('Error updating wishlist:', error);
+        }
+    };
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 py-10 px-6 mt-12 lg:px-24">
@@ -101,7 +132,7 @@ const BuyPage = () => {
                             alt='heart'
                             width={40}
                             height={40}
-                            onClick={() => setRed(!red)}
+                            onClick={() => handleWishlistToggle()}
                         />
 
                     </div>

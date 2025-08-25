@@ -28,7 +28,9 @@ export async function POST(req) {
             projectTechnologies,
             projectWebsiteLink,
             projectGithubLink,
-            projectCost
+            projectCost,
+            projectViews,
+            wishlist
         } = body;
 
         // Create the new project
@@ -44,6 +46,8 @@ export async function POST(req) {
             ProjectWebsiteLink: projectWebsiteLink,
             ProjectGithubLink: projectGithubLink,
             ProjectCost: projectCost,
+            ProjectViews: projectViews,
+            Wishlist: wishlist,
         });
 
         // Increment projectCount for the user

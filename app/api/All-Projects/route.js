@@ -5,7 +5,7 @@ import Project from "../../../models/project.model";
 import {NextResponse} from "next/server";
 import {error} from "next/dist/build/output/log";
 
-export async function GET() {
+export async function GET(req) {
     
     try{
         const cookieStore= await cookies();

@@ -282,7 +282,12 @@ const Page = () => {
                             ))}
                         </section>
                     </div>
-
+                    <div className="bg-zinc-100 dark:bg-zinc-800 p-4 rounded-lg shadow">
+                        <h3 className="text-zinc-500 uppercase font-medium text-xs">Project Views</h3>
+                        <p className="text-zinc-900 dark:text-zinc-200 font-semibold mt-1">
+                            {project.ProjectViews} views
+                        </p>
+                    </div>
                 </section>
                 <section className="flex justify-center items-center w-full gap-4">
                     <Button className='bg-red-500 hover:bg-red-600 text-white  rounded-full font-semibold shadow transition' onClick={() => setShowDeleteConfirm(true)}>
