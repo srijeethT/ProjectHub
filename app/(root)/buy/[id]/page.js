@@ -1,6 +1,6 @@
 'use client';
 
-import { useParams } from 'next/navigation';
+import {redirect, useParams} from 'next/navigation';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -34,6 +34,10 @@ const BuyPage = () => {
         return (
             <div className="p-10 text-center text-gray-500">Loading project...</div>
         );
+    }
+
+    const handleClick=()=>{
+        redirect('/');
     }
 
     return (
@@ -152,9 +156,16 @@ const BuyPage = () => {
                         </a>
                     )}
 
+                    <div className="bg-white/80 p-4 rounded-lg shadow">
+                        <p className="text-xs text-gray-500">Project Added Date</p>
+                        <p className="font-semibold text-gray-800">
+                            {project.ProjectDate.split('T')[0]}
+                        </p>
+                    </div>
+
                     {/* Buy Now Button */}
                     <div className="sticky bottom-0 bg-white/70 backdrop-blur-md p-4 rounded-xl shadow-lg mt-6">
-                        <Button className="w-full bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-indigo-700 hover:to-blue-600 text-white py-3 rounded-lg text-lg font-semibold shadow-md transition">
+                        <Button onClick={()=>handleClick()} className="w-full bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-indigo-700 hover:to-blue-600 text-white py-3 rounded-lg text-lg font-semibold shadow-md transition">
                             🛒 Buy Now
                         </Button>
                     </div>
